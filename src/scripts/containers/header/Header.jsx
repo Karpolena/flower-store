@@ -6,10 +6,10 @@ const Header = () => {
         <header className="header">
             <div className="header__logo">FLOWER STORE</div>
             <ul className="header__nav">
-                <li>Главная</li>
-                <li>Цветы</li>
-                <li>Купить</li>
-                <li>Войти</li>
+                <li className="header__nav-item">Главная</li>
+                <li className="header__nav-item">Цветы</li>
+                <li className="header__nav-item">Купить</li>
+                <li className="header__nav-item">Войти</li>
             </ul>
         </header>
     )
