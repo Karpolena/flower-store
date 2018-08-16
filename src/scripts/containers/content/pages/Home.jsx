@@ -1,68 +1,31 @@
-import React from "react";
+import React, {Component} from "react";
+import {getFlowers} from "./../../../api/flower";
+import Card from "./../../../components/Card";
 
 
-const Home = () => {
-    return (
-        <div className="home">
+class Home extends Component {
 
-            <div className="home__card card">
-                <img className="card__photo" src="../../../static/angola.jpg"/>
-                <div className="card__info">
-                    <div className="card__title">Angola</div>
-                    <div className="card__price">30$</div>
-                    <div className="card__description">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                    </div>
-                </div>                
+    state = {
+        flowers: []
+    }
+
+    componentDidMount() {
+        getFlowers().then(flowers => {
+            this.setState({flowers});
+        })
+    }
+
+    render() {
+        return (
+            <div className="home">
+                {
+                    this.state.flowers.map(flower => {
+                        return <Card key={flower.id} flower={flower}/>
+                    })
+                }
             </div>
-
-            <div className="home__card card">
-                <img className="card__photo" src="../../../static/angola.jpg"/>
-                <div className="card__info">
-                    <div className="card__title">Mondial</div>
-                    <div className="card__price">30$</div>
-                    <div className="card__description">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    </div>
-                </div>                
-            </div>
-
-            <div className="home__card card">
-                <img className="card__photo" src="../../../static/angola.jpg"/>
-                <div className="card__info">
-                    <div className="card__title">Oeral</div>
-                    <div className="card__price">30$</div>
-                    <div className="card__description">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                    </div>
-                </div>                
-            </div>
-
-            <div className="home__card card">
-                <img className="card__photo" src="../../../../static/angola.jpg"/>
-                <div className="card__info">
-                    <div className="card__title">SugarPrince</div>
-                    <div className="card__price">30$</div>
-                    <div className="card__description">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    </div>
-                </div>                
-            </div>
-
-            <div className="home__card card">
-                <img className="card__photo" src="../../../static/angola.jpg"/>
-                <div className="card__info">
-                    <div className="card__title">WhitePrince</div>
-                    <div className="card__price">30$</div>
-                    <div className="card__description">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    </div>
-                </div>                
-            </div>
-
-            
-        </div>
-    )
+        )
+    }
 }
 
 export default Home;

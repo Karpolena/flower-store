@@ -5,10 +5,14 @@ import App from "./App";
 import "./../scss/main.scss";
 // import { Provider } from "react-redux";
 // import store from "./store/index";
+import { HashRouter } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 render (
-    // <Provider >
-        <App />    
-    // </Provider>,
-,document.getElementById("root")
+    <HashRouter>
+        <Switch>
+            <Route path="*" component={App}/>
+        </Switch>    
+    </HashRouter>
+    ,document.getElementById("root")
 )
