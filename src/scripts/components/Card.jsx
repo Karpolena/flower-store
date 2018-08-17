@@ -9,9 +9,7 @@ const Card = ({flower}) => {
             <div className="card__info">
                 <div className="card__title">{flower.title}</div>
                 <div className="card__price">Price: {flower.price}</div>
-                <div className="card__description">
-                    {flower.description} 
-                </div>
+                <div className="card__description">{flower.description}</div>
             </div>                
         </Link>
     )

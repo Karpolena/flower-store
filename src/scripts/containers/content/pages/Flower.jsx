@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {getFlowerById} from "./../../../api/flower";
+import { Link } from "react-router-dom";
 
 class Flower extends Component {
 
@@ -37,7 +38,10 @@ class Flower extends Component {
                     <h1>{flower.title}</h1>
                     <h3>price: {flower.price}</h3>
                     <p>{flower.description}</p>
-                </div>
+                    <Link to="/login">
+                        <button className="button">Купить</button>
+                    </Link>
+                </div>                
             </div>
         )
     }
