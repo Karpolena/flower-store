@@ -1,33 +1,34 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import {getFlowerById} from "./../../../api/flower";
+import { connect } from "react-redux";
+// import {getFlowerById} from "./../../../api/flower";
 import { Link } from "react-router-dom";
 
-class Flower extends Component {
+class Flower extends Component({match, flowers}) {
 
-    state = {
-        flower: null
-    }
+    // state = {
+    //     flower: null
+    // }
 
-    componentDidMount() {
-        this.fetchFlower(this.props)
-    }
+    // componentDidMount() {
+    //     this.fetchFlower(this.props)
+    // }
 
-    componentWillReceiveProps(props) {
-        this.fetchFlower(props);
-    }
+    // componentWillReceiveProps(props) {
+    //     this.fetchFlower(props);
+    // }
 
-    fetchFlower = (props) => {
-        getFlowerById(props.match.params.id).then(flower => {
-            this.setState({flower});
-        }).catch(err => {
-            console.log(err);
-            props.history.push("/not-found")
-        })
-    }
+    // fetchFlower = (props) => {
+    //     getFlowerById(props.match.params.id).then(flower => {
+    //         this.setState({flower});
+    //     }).catch(err => {
+    //         console.log(err);
+    //         props.history.push("/not-found")
+    //     })
+    // }
 
     render() {
-        let {flower} = this.state;
+        let flower =  flowers.find((itm => itm.id === match.params.id));
         if(!flower) return null;
         return(
             <div className="page">
@@ -49,7 +50,13 @@ class Flower extends Component {
 
 Flower.propTypes = {
     match: PropTypes.object,
-    history: PropTypes.object
+    history: PropTypes.object,
+    flowersStore: PropTypes.object,
+    dispatch: PropTypes.func
 }
 
-export default Flower;
+export default connect(store => {
+    return {
+        flowers: store.flowersStore.flowers
+    }
+})(Flower);
