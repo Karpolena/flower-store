@@ -1,15 +1,22 @@
-import { FLOWERS } from '../constants/Flowers';
+import { FLOWERS } from "../constants/Flowers";
+import * as Api from "./../api/Flower";
 
-export const getFlowers = (flowers) => {
-    return {
-        type: FLOWERS.GET_FlOWERS,
-        payload: {flowers}
-    }
+export const getFlowers = () => (dispatch) => {
+    Api.getFlowers().then(flowers => {
+        dispatch({
+            type: FLOWERS.SET_FlOWERS,
+            payload: {flowers}
+        })
+    })
 }
 
-export const getFlowerId = (id) => {
-    return {
-        type: FLOWERS.GET_FLOWER_ID,
-        payload: {id}
-    }
+export const getFlowerById = (id, history) => (dispatch) => {
+    Api.getFlowerById(id).then(flower => {
+        dispatch({
+            type: FLOWERS.SET_FLOWER,
+            payload: {flower}
+        })
+   }).catch(() => {
+        history.push("/not-found")
+   })
 }

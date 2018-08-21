@@ -1,5 +1,7 @@
 
 export const FLOWERS = {
+    SET_FlOWERS: "SET_FlOWERS",
+    SET_FLOWER: "SET_FLOWER",
     GET_FlOWERS: "GET_FlOWERS",
     GET_FLOWER_ID: "GET_FLOWER_ID"
 }

@@ -1,28 +1,20 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-// import * as FlowersAction from "../../../actions/Flowers";
-// import {getFlowers} from "./../../../api/flower";
+import * as FlowersAction from "../../../actions/Flowers";
 import Card from "./../../../components/Card";
 
+class Home extends Component {
 
-class Home extends Component ({flowersStore}) {
-
-    // state = {
-    //     flowers: []
-    // }
-
-    // componentDidMount() {
-    //     getFlowers().then(flowers => {
-    //         this.setState({flowers});
-    //     })
-    // }
+    componentDidMount() {
+       this.props.dispatch(FlowersAction.getFlowers());
+    }
 
     render() {
         return (
             <div className="home">
                 {
-                    flowersStore.flowers.map(flower => {
+                    this.props.flowers.map(flower => {
                         return <Card key={flower.id} flower={flower}/>
                     })
                 }
@@ -31,12 +23,12 @@ class Home extends Component ({flowersStore}) {
     }
 }
 Home.propTypes = {
-    flowersStore: PropTypes.object,
+    flowers: PropTypes.array,
     dispatch: PropTypes.func
 } 
 
 export default connect(store => {
     return {
-        flowersStore: store.flowersStore
+        flowers: store.flowersStore.flowers
     }
 })(Home);

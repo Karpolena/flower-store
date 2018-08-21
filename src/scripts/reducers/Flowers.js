@@ -1,37 +1,27 @@
 import { FLOWERS } from "../constants/Flowers";
-import {data} from "./../data/index";
 
 let initialState = {
     flowers: [],
-    id: []
+    flower: null
 }
 
-const getFlowers = () => {
-    return new Promise((resolve) => {
-        resolve(data);
-    });
+const setFlowers = (state, payload) => {
+    state.flowers = [...payload.flowers];
+    return {...state};
 }
 
-const getFlowerById = (id) => {
-    return new Promise((resolve, reject) => {
-        let flower = data.find(fl => fl.id.toString() === id);
-        if(flower) return resolve(flower);
-        reject("Flover not found");
-    });
+const setFlower = (state, payload) => {
+    state.flower = payload.flower;
+    return {...state};
 }
-
-
-
-
 
 const flowersReducer = (state = initialState, action) => {
     switch (action.type) {
-        case FLOWERS.GET_FlOWERS:
-            return getFlowers(state, action.payload);
-        case FLOWERS.GET_FLOWER_ID:
-            return getFlowerById(state, action.payload);
-        default: return (state);
-        
+        case FLOWERS.SET_FlOWERS:
+            return setFlowers(state, action.payload);
+        case FLOWERS.SET_FLOWER:
+            return setFlower(state, action.payload);
+        default: return state;
     }
 }
 export default flowersReducer;
