@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import * as FlowerActions from "./../../../actions/Flowers";
+import Button from '@material-ui/core/Button';
 
 class Flower extends Component {
 
@@ -32,7 +33,9 @@ class Flower extends Component {
                     <h3>price: {flower.price}</h3>
                     <p>{flower.description}</p>
                     <Link to="/login">
-                        <button className="button">Купить</button>
+                        <Button variant="contained" color="primary">
+                            Купить
+                        </Button>
                     </Link>
                 </div>                
             </div>

@@ -10,6 +10,8 @@
     "watch-linux": "node_modules/webpack/bin/webpack.js --config webpack.config.js --watch"
   },
   "dependencies": {
+    "@material-ui/core": "^1.5.1",
+    "@material-ui/icons": "^2.0.3",
     "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
