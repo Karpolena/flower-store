@@ -9,39 +9,41 @@ $roboto: 'Roboto', sans-serif;
 $white: #fff;
 $light-pink: rgb(241, 211, 234);
 $pink: rgb(241, 117, 210);
-$dark-pink: rgb(141, 30, 99);
-$dark-pink-opacity: rgba(141, 30, 98, 0.637);
+$dark-pink: rgb(110, 30, 141);
+$dark-pink-opacity: rgba(137, 30, 141, 0.637);
 
 $font-1: 0.9em;
-
+.pink {
+    background-color: $pink;
+}
 * {
 margin: 0px;
 padding: 0px;
 box-sizing: border-box;
 }
 html, body {
-    height: 100%;
+    height: 100%;    
 }
 body {
     font-family: $roboto;
     color: $dark-pink;
-    background-color: $light-pink;
 }
 a {
     text-decoration: none;
-    color: $white;
+    color: $pink;
 }
 .main {
     max-width: 1200px;
+   
     margin: 0 auto;
-    background-color: white;
+    background-color: $light-pink;
     display: flex;
     flex-direction: column;
 }
 .header {
     height: 50px;
-    background-color: $pink;
-    color: $white;
+    // background-color: $pink;
+    color: $pink;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -81,11 +83,9 @@ a {
     flex-direction: column;
     align-items: center;   
     width: 400px;
+    padding: 1em;
     font-size: $font-1;
-    &__photo {
-        width: 200px;
-        height: 250px;
-    }
+   
     &__info {
         display: flex;
         flex-direction: column;
@@ -94,6 +94,7 @@ a {
     }
     &__title {
         font-size: 1.4em;
+        text-align: center;
     }
     &__price {
         font-size: 1.2em;
@@ -109,7 +110,7 @@ a {
     }
     &__info {
         padding: 1em;
-        width: 400px;
+        // width: 400px;
         display: flex;
         flex-direction: column;
         align-items: center;
