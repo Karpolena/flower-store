@@ -15,7 +15,7 @@ const Card = ({flower}) => {
             </Link>
             <div className="button-wrap">
                 <button className="button"> Купить </button>
-                <button className="button"> Избранное </button>
+                <button className="button"> Добавить </button>
             </div>
         </div>
     )

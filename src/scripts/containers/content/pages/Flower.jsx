@@ -31,7 +31,7 @@ class Flower extends Component {
                     <h1>{flower.title}</h1>
                     <h3>price: {flower.price}</h3>
                     <p>{flower.description}</p>
-                    <Link to="/login">
+                    <Link to="/buy">
                         <button className="button">
                             Купить
                         </button>
