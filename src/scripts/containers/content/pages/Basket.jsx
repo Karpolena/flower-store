@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import * as BasketAction from "../../../actions/Basket";
 
-import BasketCalc from "../../../components/basket/BasketCalc";
+// import BasketCalc from "../../../components/basket/BasketDel";
 import BasketDisplay from "../../../components/basket/BasketDisplay";
 import Card from "./../../../components/Card";
 
@@ -13,13 +13,16 @@ class Basket extends Component {
     render() {
         return (
             <div>
-                {
+                   {
                     this.props.basketFlowers.map(basketFlower => {
-                        return <Card key={basketFlower.id} basketFlower={basketFlower}/>
+                        return (                            
+                            <Card 
+                            key={basketFlower.id} 
+                            basketFlower={basketFlower} 
+                            onDelete={(id) => this.props.dispatch(BasketAction.removeFlower(id))}/>
+                        )
                     })
                 }
-                
-                <BasketCalc label="Удалить" onDelete={(id) => this.props.dispatch(BasketAction.removeFlower(id))}/>
                 <BasketDisplay value={this.props.count}/>
             </div>
         )
