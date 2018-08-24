@@ -2,11 +2,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import * as BasketAction from "../../../actions/Basket";
 
-// import BasketCalc from "../../../components/basket/BasketDel";
+import * as BasketAction from "../../../actions/Basket";
 import BasketDisplay from "../../../components/basket/BasketDisplay";
-import Card from "./../../../components/Card";
+import CardForBasket from "./../../../components/basket/CardForBasket";
 
 class Basket extends Component {
 
@@ -14,11 +13,11 @@ class Basket extends Component {
         return (
             <div>
                    {
-                    this.props.basketFlowers.map(basketFlower => {
+                    this.props.basketFlowers.map(_basketFlower => {
                         return (                            
-                            <Card 
-                            key={basketFlower.id} 
-                            basketFlower={basketFlower} 
+                            <CardForBasket 
+                            key={_basketFlower.id} 
+                            basketFlower={_basketFlower} 
                             onDelete={(id) => this.props.dispatch(BasketAction.removeFlower(id))}/>
                         )
                     })
@@ -26,14 +25,13 @@ class Basket extends Component {
                 <BasketDisplay value={this.props.count}/>
             </div>
         )
-
     }
-
 }
 
 export default connect(store => {
     return {
         basketFlowers: store.basketStore.basketFlowers,
+        basketFlower: store.basketStore.basketFlower,
         count: store.basketStore.count,
         basketFlowerId: store.basketFlowerId
     } 

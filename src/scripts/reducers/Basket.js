@@ -2,6 +2,7 @@ import { BASKET } from "../constants/Basket";
 
 let initialState = {
     basketFlowers: [],
+    basketFlower: [],
     basketFlowerId: [],
     count: 0
 }

@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 const CardForBasket = ({basketFlower, onDelete}) => {
     return (
-        <div>
+        <div className="basket">
             <Link to={`/flower/${basketFlower.id}`} className="home__card card">
                 <img className="card__photo" src={basketFlower.image}/>
                 <div className="card__info">
@@ -21,7 +21,9 @@ const CardForBasket = ({basketFlower, onDelete}) => {
 }
 
 CardForBasket.propTypes = {
-    flower: PropTypes.object
+    flower: PropTypes.object,
+    onDelete: PropTypes.func,
+    basketFlower: PropTypes.object
 }
 
 export default CardForBasket;

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
-const Card = ({flower}) => {
+const Card = ({flower, onAdd}) => {
     return (
         <div>
             <Link to={`/flower/${flower.id}`} className="home__card card">
@@ -13,16 +13,20 @@ const Card = ({flower}) => {
                     <div className="card__description">{flower.description}</div>
                 </div>                
             </Link>
+            
             <div className="button-wrap">
-                <button className="button"> Купить </button>
-                <button className="button"> Добавить </button>
+                <Link to="/basket">
+                    <button className="button" onClick={(flower) => onAdd(flower)}> Купить </button>
+                </Link>
+                <button className="button" onClick={(flower) => onAdd(flower)}> Добавить </button>
             </div>
         </div>
     )
 }
 
 Card.propTypes = {
-    flower: PropTypes.object
+    flower: PropTypes.object,
+    onAdd: PropTypes.func
 }
 
 export default Card;

@@ -111,6 +111,12 @@ a {
         align-items: center;
     }
 }
+.basket {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .active {
     color: $dark-pink;
 }
@@ -154,5 +160,7 @@ a {
     } 
 
 }
+
+
 
 

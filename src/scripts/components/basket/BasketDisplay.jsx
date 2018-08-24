@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const BasketDisplay = (props) => (
     <div className="display counter__item">
-        Всего: {props.value}
+       Всего: {props.value}
     </div>
 );
 
