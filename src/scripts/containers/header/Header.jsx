@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-
-import BasketDisplay from "../../components/basket/BasketDisplay";
-
+ 
 
 class Header extends Component {
     render() {
@@ -15,10 +13,12 @@ class Header extends Component {
                     <NavLink exact to="/"className="header__nav-item">Главная</NavLink>
                     <NavLink to="/about" className="header__nav-item">О проекте</NavLink>
                     <NavLink to="/basket" className="header__nav-item">
-                        <i className="material-icons">
-                            shopping_basket
-                        </i>
-                        <BasketDisplay className="labelForHeader" value={this.props.count}/>
+                   
+                        <i className="material-icons">shopping_basket</i>
+                        <div className="header__count">
+                            {this.props.basketFlowers.length}
+                        </div>
+                                       
                     </NavLink>
                     <NavLink to="/login" className="header__nav-item">Войти</NavLink>
                 </nav>
@@ -29,10 +29,10 @@ class Header extends Component {
 
 export default connect(store => {
     return {
-        count: store.basketStore.count
+        basketFlowers: store.basketStore.basketFlowers
     } 
 })(Header);
 
 Header.propTypes = {
-    count: PropTypes.number
+    basketFlowers: PropTypes.array
 }

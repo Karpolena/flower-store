@@ -52,6 +52,18 @@ a {
         color: $dark-pink-opacity;
         
     }
+    &__count {
+        width: 20px;
+        height: 20px;
+        color: $dark-pink;
+        text-align: center;
+        line-height: 20px;
+        background-color: $light-pink;
+        border-radius: 100%;
+        position: absolute;
+        top: 30px;
+    }
+   
 }
 .wrap-content {
     display: flex;

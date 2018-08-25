@@ -13,16 +13,16 @@ class Basket extends Component {
         return (
             <div>
                    {
-                    this.props.basketFlowers.map(_basketFlower => {
+                    this.props.basketFlowers.map(basketFlower => {
                         return (                            
                             <CardForBasket 
-                            key={_basketFlower.id} 
-                            basketFlower={_basketFlower} 
+                            key={basketFlower.id} 
+                            basketFlower={basketFlower} 
                             onDelete={(id) => this.props.dispatch(BasketAction.removeFlower(id))}/>
                         )
                     })
                 }
-                <BasketDisplay value={this.props.count}/>
+                <BasketDisplay value={this.props.basketFlowers.length}/>
             </div>
         )
     }
@@ -31,15 +31,10 @@ class Basket extends Component {
 export default connect(store => {
     return {
         basketFlowers: store.basketStore.basketFlowers,
-        basketFlower: store.basketStore.basketFlower,
-        count: store.basketStore.count,
-        basketFlowerId: store.basketFlowerId
     } 
 })(Basket);
 
 Basket.propTypes = {
     basketFlowers: PropTypes.array,
-    count: PropTypes.number,
-    basketFlowerId: PropTypes.array,
     dispatch: PropTypes.func
 }

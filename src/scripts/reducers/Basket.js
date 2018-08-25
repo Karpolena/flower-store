@@ -1,20 +1,22 @@
 import { BASKET } from "../constants/Basket";
 
 let initialState = {
-    basketFlowers: [],
-    basketFlower: [],
-    basketFlowerId: [],
-    count: 0
+    basketFlowers: []
 }
 
 const addFlower = (state, payload) => {
-    state.basketFlowers.push(payload);
-    return {...state}
+	return {
+		...state,
+		basketFlowers: [
+	...state.basketFlowers, payload
+	]
+	};
 
 }
 const removeFlower = (state, payload) => {
-    state.basketFlowers = state.basketFlowers.filter(itm => itm.id !== payload.id);
-    return {...state}
+    return {
+        ...state, basketFlowers: state.basketFlowers.filter(itm =>itm.id !== payload.id)
+    };
 
 }
 

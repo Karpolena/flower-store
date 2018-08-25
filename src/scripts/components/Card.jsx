@@ -19,6 +19,7 @@ const Card = ({flower, onAdd}) => {
                     <button className="button" onClick={(flower) => onAdd(flower)}> Купить </button>
                 </Link>
                 <button className="button" onClick={(flower) => onAdd(flower)}> Добавить </button>
+                
             </div>
         </div>
     )
