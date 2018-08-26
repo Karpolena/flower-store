@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
+import Button from "@material-ui/core/Button";
+
 const CardForBasket = ({basketFlower, onDelete}) => {
     return (
         <div className="basket">
@@ -13,8 +15,8 @@ const CardForBasket = ({basketFlower, onDelete}) => {
                 </div>                
             </Link>
             <div className="button-wrap">
-                <button className="button"> Купить </button>
-                <button className="button" onClick={() => onDelete(basketFlower.id)}> Удалить </button>
+                <Button className="button"> Купить </Button>
+                <Button className="button" onClick={() => onDelete(basketFlower.id)}> Удалить </Button>
             </div>
         </div>
     )

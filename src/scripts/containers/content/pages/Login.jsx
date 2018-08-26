@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Button from "@material-ui/core/Button";
 
 class Login extends Component {
     constructor(props) {
@@ -47,7 +48,7 @@ class Login extends Component {
                     />
                     
                 </form>            
-                <button onClick={this.handleSubmit.bind(this)}className="button">Отправить</button>            
+                <Button onClick={this.handleSubmit.bind(this)}className="button">Отправить</Button>            
             </main>
         );
     }

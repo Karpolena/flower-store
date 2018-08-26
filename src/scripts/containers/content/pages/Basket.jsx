@@ -7,6 +7,7 @@ import * as BasketAction from "../../../actions/Basket";
 import BasketDisplay from "../../../components/basket/BasketDisplay";
 import CardForBasket from "./../../../components/basket/CardForBasket";
 
+
 class Basket extends Component {
 
     render() {
