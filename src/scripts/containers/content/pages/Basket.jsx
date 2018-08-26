@@ -22,7 +22,7 @@ class Basket extends Component {
                         )
                     })
                 }
-                <BasketDisplay value={this.props.basketFlowers.length}/>
+                <BasketDisplay value={this.props.basketFlowers.reduce((total, flower) => total + parseInt(flower.price), 0)}/>
             </div>
         )
     }
