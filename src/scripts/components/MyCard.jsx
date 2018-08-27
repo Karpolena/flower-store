@@ -30,9 +30,9 @@ const MyCard = ({flower, onAdd}) => {
             </CardContent>
             <CardActions>
                 <Link to="/basket">
-                    <Button className="button" onClick={(flower) => onAdd(flower)}> Купить </Button>
+                    <Button className="button" onClick={() => onAdd(flower)}> Купить </Button>
                 </Link>
-                <Button className="button" onClick={(flower) => onAdd(flower)}> Добавить </Button>
+                <Button className="button" onClick={() => onAdd(flower)}> Добавить </Button>
             </CardActions>
     </Card>
  

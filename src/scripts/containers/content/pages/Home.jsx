@@ -16,7 +16,11 @@ class Home extends Component {
             <div className="home">
                 {
                     this.props.flowers.map(flower => {
-                        return <MyCard key={flower.id} flower={flower} onAdd={(flower) => this.props.dispatch(BasketAction.addFlower(flower))}/>
+                        return <MyCard 
+                            key={flower.id} 
+                            flower={flower} 
+                            onAdd={(_flower) => this.props.dispatch(BasketAction.addFlower(_flower))}
+                        />
                     })
                 }
             </div>
